@@ -1,13 +1,18 @@
 //console.log(`oi`);
-const robotron = document.querySelector("#robotron")
+const braco = document.querySelector("#braco");
 
-robotron.addEventListener(`click`, () => {
-  console.log(`Cliquei no robô!`);
-});
+const controle = document.querySelectorAll(".controle-ajuste");
 
-function dizerOi(nome){
-  console.log(`oi, ${nome}`);
-  console.log(`bem-vindo ao Robotron 2000`);
+controle.forEach( (elemento) => {
+  elemento.addEventListener(`click`, (evento) => {
+    manipularDados(evento.target.textContent);
+  })
+})
+
+function manipularDados(operacao){
+  if(operacao === "-"){
+    braco.value = parseInt(braco.value) - 1;
+  }else if(operacao === "+"){
+    braco.value = parseInt(braco.value) + 1;
+  }
 }
-
-dizerOi(`Michael`);
